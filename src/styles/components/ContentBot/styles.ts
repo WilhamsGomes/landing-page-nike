@@ -5,6 +5,23 @@ export const Container = styled.div`
     display: flex;
     gap: 40px;
     padding: 20px;
+
+    @media (${(props) => props.theme.breaks.lg}) {
+        gap: 0px;
+        padding: 10px;
+        flex-direction: row;
+    }
+`; 
+
+export const WrapperContent = styled.div`
+    display: flex;
+    gap: 40px;
+
+    @media (${(props) => props.theme.breaks.lg}) {
+        flex-direction: column;
+        align-items: center;
+    }
+
 `;
 
 export const MenuOptions = styled.div<{ active: Number }>`
@@ -20,12 +37,17 @@ export const MenuOptions = styled.div<{ active: Number }>`
 
     .active{
         background-color: ${(props) => (props.active == 1 ? "#631F22" : "#000")};
-        /* background-color: #000; */
         color: #fff;
         
         &:hover{
             background-color: #000;
         }
+    }
+
+    @media (${(props) => props.theme.breaks.sm}) {
+        position: absolute;
+        height: 240px;
+        left: 30%;
     }
 
 `;
@@ -58,6 +80,15 @@ export const Content = styled.div<{ active: Number }>`
         max-height: 250px;
         overflow: hidden;
         color: ${(props) => (props.active == 1 ? "#631F22" : "#000")};
+
+        @media (${(props) => props.theme.breaks.lg}) {
+            font-size: 3rem;
+        }
+
+        @media (${(props) => props.theme.breaks.xl}) {
+            font-size: 3rem;
+        }
+
     }
 
     p{
@@ -98,6 +129,10 @@ export const Buttons = styled.div<{ active: Number }>`
         font-weight: bold;
         border: none;
         border-radius: 6px;
+    }
+
+    @media (${(props) => props.theme.breaks.lg}) {
+        justify-content: center;
     }
 
 `;

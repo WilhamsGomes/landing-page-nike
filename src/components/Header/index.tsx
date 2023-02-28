@@ -21,7 +21,7 @@ export default function Header() {
                     <Item>Collections</Item>
                 </List>
             </Content>
-            <Cart2 size="24" title="Unlock account"/>
+            {/* <Cart2 size="24" title="Unlock account"/> */}
         </Container>
     )
 }

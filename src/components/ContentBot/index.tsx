@@ -6,7 +6,8 @@ import {
     Buttons,
     MenuOptions,
     Option,
-    ContentImage
+    ContentImage,
+    WrapperContent
 } from "@/styles/components/ContentBot/styles"
 import Galery from "../Galery"
 
@@ -56,22 +57,25 @@ export default function ContentBot(){
                     3
                 </Option>
             </MenuOptions>
-            <Content active={active}>
-                <h1> {botSelected?.title} </h1>
-                <p> {botSelected?.description} </p>
-                <Buttons active={active}>
-                    <button>Buy</button>
-                    <button className="transparent"> 
-                        {botSelected?.price}
-                    </button>
-                </Buttons>
-            </Content>
-            <ContentImage>
-                {active == 0 && <Image src={ImgBotAirMax} alt={botSelected?.title || 'Bot Nike'}/>}
-                {active == 1 && <Image src={ImgBotAirForce} alt="Tênis Nike"/>}
-                {active == 2 && <Image src={ImgBotAirForceLow} alt="Tênis Nike"/>}
-                <Galery bot={active}/>
-            </ContentImage>
+            <WrapperContent>
+                <Content active={active}>
+                    <h1> {botSelected?.title} </h1>
+                    <p> {botSelected?.description} </p>
+                    <Buttons active={active}>
+                        <button>Buy</button>
+                        <button className="transparent"> 
+                            {botSelected?.price}
+                        </button>
+                    </Buttons>
+                </Content>
+                <ContentImage>
+                    {active == 0 && <Image src={ImgBotAirMax} alt={botSelected?.title || 'Bot Nike'}/>}
+                    {active == 1 && <Image src={ImgBotAirForce} alt="Tênis Nike"/>}
+                    {active == 2 && <Image src={ImgBotAirForceLow} alt="Tênis Nike"/>}
+                    <Galery bot={active}/>
+                </ContentImage>
+            </WrapperContent>
+            
         </Container>
     )
 }
