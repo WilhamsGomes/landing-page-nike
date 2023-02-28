@@ -11,20 +11,18 @@ import {
 import Galery from "../Galery"
 
 import Image from "next/image"
-import ImgBot from "../../assets/img/air-max-pre-day-se-shoes-RLpZQ3.png"
-import ImgBotNike from "../../assets/img/air-max-pre-day.png"
+
+import ImgBotAirMax from "../../assets/img/air-max-pre-day.png"
+import ImgBotAirForce from "../../assets/img/air-force-1.png"
+import ImgBotAirForceLow from "../../assets/img/air-force-1-low.png"
 
 import { bots } from "./data/bots"
 
 type PropsTypes ={
     id: Number,
-    title: String,
-    description: String,
-    price: String,
-    photoMain: String,
-    photoSecundary1: String,
-    photoSecundary2: String,
-    photoSecundary3: String,
+    title: string,
+    description: string,
+    price: string,
 }
 
 export default function ContentBot(){
@@ -70,8 +68,10 @@ export default function ContentBot(){
                 </Buttons>
             </Content>
             <ContentImage>
-                <Image src={ImgBotNike} alt="Tênis Nike"/>
-                <Galery/>
+                {active == 0 && <Image src={ImgBotAirMax} alt={botSelected?.title || 'Bot Nike'}/>}
+                {active == 1 && <Image src={ImgBotAirForce} alt="Tênis Nike"/>}
+                {active == 2 && <Image src={ImgBotAirForceLow} alt="Tênis Nike"/>}
+                <Galery bot={active}/>
             </ContentImage>
         </Container>
     )
