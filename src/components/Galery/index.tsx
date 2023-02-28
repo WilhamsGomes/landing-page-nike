@@ -25,10 +25,6 @@ type PropsType = {
 
 export default function Galery( { bot } : PropsType){
 
-    useEffect(() =>{
-        console.log(bot)
-    },[bot])
-
     return(
         <>
         { bot == 0 &&

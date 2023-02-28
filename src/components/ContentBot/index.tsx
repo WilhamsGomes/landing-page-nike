@@ -35,9 +35,8 @@ export default function ContentBot(){
     }, [active])
 
     return(
-        <Container>
-            
-            <MenuOptions>
+        <Container>    
+            <MenuOptions active={active}>
                 <Option 
                     onClick={() => setActive(0)}
                     className={active == 0 ? 'active' : ''}
@@ -57,10 +56,10 @@ export default function ContentBot(){
                     3
                 </Option>
             </MenuOptions>
-            <Content>
+            <Content active={active}>
                 <h1> {botSelected?.title} </h1>
                 <p> {botSelected?.description} </p>
-                <Buttons>
+                <Buttons active={active}>
                     <button>Buy</button>
                     <button className="transparent"> 
                         {botSelected?.price}

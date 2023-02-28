@@ -7,7 +7,7 @@ export const Container = styled.div`
     padding: 20px;
 `;
 
-export const MenuOptions = styled.div`
+export const MenuOptions = styled.div<{ active: Number }>`
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,7 +19,8 @@ export const MenuOptions = styled.div`
     transition: background-color 0.2s ease-in;
 
     .active{
-        background-color: #000;
+        background-color: ${(props) => (props.active == 1 ? "#631F22" : "#000")};
+        /* background-color: #000; */
         color: #fff;
         
         &:hover{
@@ -45,7 +46,8 @@ export const Option = styled.div`
 
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ active: Number }>`
+   
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -55,6 +57,7 @@ export const Content = styled.div`
         font-size: 4.3rem;
         max-height: 250px;
         overflow: hidden;
+        color: ${(props) => (props.active == 1 ? "#631F22" : "#000")};
     }
 
     p{
@@ -75,21 +78,22 @@ export const ContentImage = styled.div`
     margin-top: -80px;
 `;
 
-export const Buttons = styled.div`
+export const Buttons = styled.div<{ active: Number }>`
     display: flex;
     align-items: center;
     gap: 18px;
 
     .transparent{
         background: transparent;
-        border: 1px solid #000;
+        border: 1px solid ${(props) => (props.active == 1 ? "#631F22" : "#000")};
         color: #000;
     }
 
     button{
         width: 140px;
         height: 40px;
-        background: #000;
+        /* background: #000; */
+        background: ${(props) => (props.active == 1 ? "#631F22" : "#000")};
         color: #e4e0dd;
         font-weight: bold;
         border: none;
