@@ -5,7 +5,13 @@ export const Container = styled.header`
     height: 40px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 24px;
+`;
+
+export const Content = styled.div`
+    display: flex;
+    align-items: center;
     gap: 80px;
     margin-top: 16px;
 `;
