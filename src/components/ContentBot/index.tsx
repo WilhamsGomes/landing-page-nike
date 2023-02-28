@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import { 
     Container,
@@ -14,41 +14,59 @@ import Image from "next/image"
 import ImgBot from "../../assets/img/air-max-pre-day-se-shoes-RLpZQ3.png"
 import ImgBotNike from "../../assets/img/air-max-pre-day.png"
 
+import { bots } from "./data/bots"
+
+type PropsTypes ={
+    id: Number,
+    title: String,
+    description: String,
+    price: String,
+    photoMain: String,
+    photoSecundary1: String,
+    photoSecundary2: String,
+    photoSecundary3: String,
+}
 
 export default function ContentBot(){
 
-    const [active, setActive] = useState(1)
+    const [active, setActive] = useState(0)
+    const [botSelected, setBotSelected] = useState<PropsTypes>()
+
+    useEffect(() => {
+        setBotSelected(bots[active])
+    }, [active])
 
     return(
         <Container>
+            
             <MenuOptions>
+                <Option 
+                    onClick={() => setActive(0)}
+                    className={active == 0 ? 'active' : ''}
+                >
+                    1
+                </Option>
                 <Option 
                     onClick={() => setActive(1)}
                     className={active == 1 ? 'active' : ''}
                 >
-                    1
+                    2
                 </Option>
                 <Option 
                     onClick={() => setActive(2)}
                     className={active == 2 ? 'active' : ''}
                 >
-                    2
-                </Option>
-                <Option 
-                    onClick={() => setActive(3)}
-                    className={active == 3 ? 'active' : ''}
-                >
                     3
                 </Option>
             </MenuOptions>
             <Content>
-                <h1>Nike Air Max Pre-Day Pure Platinum</h1>
-                <p>La marque au Swoosh a décidé d’embellir l’été de ses aficionados en dévoilant une nouvelle version de sa Air Max avec le coloris Pure Platinum.
-                <br/> <br/>
-                La Nike Air Max Pre-Day Pure Platinum adopte une base en mesh blanc qui est agrémentée par des empiècements en suède gris clair au niveau du panel et du mudguard. Le Swoosh latéral se pare de blanc et s’accorde à merveille avec les lacets et la midsole. Le tout repose sur l’emblématique Air-Sol de la Air Max 1..</p>
+                <h1> {botSelected?.title} </h1>
+                <p> {botSelected?.description} </p>
                 <Buttons>
-                    <button>Comprar</button>
-                    <button>Comprar</button>
+                    <button>Buy</button>
+                    <button className="transparent"> 
+                        {botSelected?.price}
+                    </button>
                 </Buttons>
             </Content>
             <ContentImage>

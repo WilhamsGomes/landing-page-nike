@@ -36,5 +36,21 @@ export default createGlobalStyle`
         cursor: pointer;
     }      
 
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    /* Track */
+    /* ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px #bab2ad; 
+        border-radius: 10px;
+    } */
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: #bab2ad; 
+    border-radius: 10px;
+    }
+
 
 `;

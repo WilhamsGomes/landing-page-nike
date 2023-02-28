@@ -62,6 +62,7 @@ export const Content = styled.div`
         opacity: 0.7;
         line-height: 1.2rem;
         text-align: justify;
+        min-height: 150px;
     }
 
 `;
@@ -78,6 +79,12 @@ export const Buttons = styled.div`
     display: flex;
     align-items: center;
     gap: 18px;
+
+    .transparent{
+        background: transparent;
+        border: 1px solid #000;
+        color: #000;
+    }
 
     button{
         width: 140px;
