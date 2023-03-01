@@ -20,6 +20,7 @@ export const List = styled.ul`
     display: flex;
     align-items: center;
     gap: 60px;
+    transition: all 1s ease-in;
 
     .active{
         border-bottom: 2px solid #000;
