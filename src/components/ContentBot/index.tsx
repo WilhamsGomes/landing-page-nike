@@ -37,7 +37,6 @@ export default function ContentBot(){
 
     return(
         <Container>    
-           
             <WrapperContent>
                 <MenuOptions active={active}>
                     <Option 
@@ -71,12 +70,11 @@ export default function ContentBot(){
                 </Content>
             </WrapperContent>    
             <ContentImage>
-                    {active == 0 && <Image className="photo-main" src={ImgBotAirMax} alt={botSelected?.title || 'Bot Nike'}/>}
-                    {active == 1 && <Image className="photo-main" src={ImgBotAirForce} alt="Tênis Nike"/>}
-                    {active == 2 && <Image className="photo-main" src={ImgBotAirForceLow} alt="Tênis Nike"/>}
-                    <Galery bot={active}/>
-                </ContentImage>
-            
+                {active == 0 && <Image className="photo-main" src={ImgBotAirMax} alt={botSelected?.title || 'Bot Nike'}/>}
+                {active == 1 && <Image className="photo-main" src={ImgBotAirForce} alt="Tênis Nike"/>}
+                {active == 2 && <Image className="photo-main" src={ImgBotAirForceLow} alt="Tênis Nike"/>}
+                <Galery bot={active}/>
+            </ContentImage>
         </Container>
     )
 }

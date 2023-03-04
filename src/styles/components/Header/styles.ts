@@ -7,6 +7,11 @@ export const Container = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 24px;
+
+    svg{
+        cursor: pointer;
+    }
+
 `;
 
 export const Content = styled.div`

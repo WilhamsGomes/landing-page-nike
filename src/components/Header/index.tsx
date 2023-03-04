@@ -1,5 +1,4 @@
-import { useState } from "react"
-
+import { useState, useContext } from "react"
 import { 
     Container,
     List,
@@ -7,13 +6,16 @@ import {
     Content
 } from "@/styles/components/Header/styles";
 
+import { CartContext } from "@/context/cart";
+
 import logoNike from "../../assets/img/Logo_NIKE.svg.png";
 import Image from "next/image";
-import { Cart2 } from '@styled-icons/bootstrap/Cart2'
+import { Cart2 } from '@styled-icons/bootstrap/Cart2';
 
 export default function Header() {
 
-    const [active, setActive] = useState(0)
+    const [active, setActive] = useState(0);
+    const { addProduct } = useContext(CartContext);
 
     return(
         <Container>
@@ -46,7 +48,11 @@ export default function Header() {
                     </Item>
                 </List>
             </Content>
-            {/* <Cart2 size="24" title="Unlock account"/> */}
+            <Cart2 size="24" title="Unlock account" 
+                onClick={ () =>{
+                    addProduct(1)
+                }}
+            />
         </Container>
     )
 }
