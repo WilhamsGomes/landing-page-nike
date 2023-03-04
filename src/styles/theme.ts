@@ -7,7 +7,7 @@ export default {
       sm: "max-width: 576px",
       md: "max-width: 768px",
       lg: "max-width: 992px",
-      xl: "max-width: 1200px",
+      xl: "max-width: 1070px",
       xxl: "min-width: 1201px",
     },
     font: {

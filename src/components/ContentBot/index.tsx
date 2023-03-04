@@ -37,27 +37,28 @@ export default function ContentBot(){
 
     return(
         <Container>    
-            <MenuOptions active={active}>
-                <Option 
-                    onClick={() => setActive(0)}
-                    className={active == 0 ? 'active' : ''}
-                >
-                    1
-                </Option>
-                <Option 
-                    onClick={() => setActive(1)}
-                    className={active == 1 ? 'active' : ''}
-                >
-                    2
-                </Option>
-                <Option 
-                    onClick={() => setActive(2)}
-                    className={active == 2 ? 'active' : ''}
-                >
-                    3
-                </Option>
-            </MenuOptions>
+           
             <WrapperContent>
+                <MenuOptions active={active}>
+                    <Option 
+                        onClick={() => setActive(0)}
+                        className={active == 0 ? 'active' : ''}
+                    >
+                        1
+                    </Option>
+                    <Option 
+                        onClick={() => setActive(1)}
+                        className={active == 1 ? 'active' : ''}
+                    >
+                        2
+                    </Option>
+                    <Option 
+                        onClick={() => setActive(2)}
+                        className={active == 2 ? 'active' : ''}
+                    >
+                        3
+                    </Option>
+                </MenuOptions>
                 <Content active={active}>
                     <h1> {botSelected?.title} </h1>
                     <p> {botSelected?.description} </p>
@@ -68,13 +69,13 @@ export default function ContentBot(){
                         </button>
                     </Buttons>
                 </Content>
-                <ContentImage>
-                    {active == 0 && <Image src={ImgBotAirMax} alt={botSelected?.title || 'Bot Nike'}/>}
-                    {active == 1 && <Image src={ImgBotAirForce} alt="Tênis Nike"/>}
-                    {active == 2 && <Image src={ImgBotAirForceLow} alt="Tênis Nike"/>}
+            </WrapperContent>    
+            <ContentImage>
+                    {active == 0 && <Image className="photo-main" src={ImgBotAirMax} alt={botSelected?.title || 'Bot Nike'}/>}
+                    {active == 1 && <Image className="photo-main" src={ImgBotAirForce} alt="Tênis Nike"/>}
+                    {active == 2 && <Image className="photo-main" src={ImgBotAirForceLow} alt="Tênis Nike"/>}
                     <Galery bot={active}/>
                 </ContentImage>
-            </WrapperContent>
             
         </Container>
     )
