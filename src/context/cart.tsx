@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode} from "react";
+import React, { createContext, useContext, useState, useEffect} from "react";
 
 type Product ={
     productId: number;
@@ -8,6 +8,8 @@ type Product ={
 type CartProps = {
     cart: Product[] | undefined;
     addProduct: (productId: number) => void;
+    expandCart: boolean;
+    handleCart: (value: boolean) => void;
 }
 
 type Props = {
@@ -17,17 +19,39 @@ type Props = {
 export const CartContext = createContext({} as CartProps)
 
 export const CartProvider = ({children} : Props) => {
+ 
+    const [cart, setCart] = useState<Product[]>([]);
+    const [expandCart, setExpandCart] = useState(false);
 
-    const [cart, setCart] = useState<Product[]>();
-    const addProduct = (productId: number) => {
-        alert("Vamos adicionar")
+    const handleCart = (value: boolean) =>{
+        setExpandCart(value)
     }
+
+    const addProduct = (productId: number) => {
+
+        //Fazer verificações antes de adicionar no carrinho
+
+        setCart(prevList => [
+            ...prevList,
+            {
+                productId: productId,
+                amount: 15.98
+            }
+        ])
+
+    }
+
+    useEffect(() => {
+        console.log("useEffect", cart)
+    }, [cart])
 
     return(
         <CartContext.Provider
             value={{
                 cart,
-                addProduct
+                addProduct,
+                expandCart,
+                handleCart
             }}
         >
             {children}
