@@ -42,3 +42,20 @@ export const Item = styled.li`
     }
 
 `;
+
+export const WrapperCart = styled.div`
+    padding: 8px;
+`;
+
+export const QuantityItem = styled.div`
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 50%;
+    background: #fff;
+`;

@@ -3,7 +3,9 @@ import {
     Container,
     List,
     Item,
-    Content
+    Content,
+    WrapperCart,
+    QuantityItem
 } from "@/styles/components/Header/styles";
 
 import { CartContext } from "@/context/cart";
@@ -50,12 +52,16 @@ export default function Header() {
                         </Item>
                     </List>
                 </Content>
-                <Cart2 size="24" title="Unlock account" 
-                    onClick={ () =>{ (
-                        addProduct(1), 
-                        handleCart(true)
-                    )}}
-                />
+                <WrapperCart>
+                    <QuantityItem>
+                        {cart?.length}
+                    </QuantityItem>
+                    <Cart2 size="24" title="Unlock account" 
+                        onClick={ () =>{ (
+                            handleCart(true)
+                        )}}
+                    />
+                </WrapperCart>
             </Container>
             {expandCart && <Cart/>}
         </>

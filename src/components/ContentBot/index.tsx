@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 
 import { 
     Container,
@@ -17,19 +17,22 @@ import ImgBotAirMax from "../../assets/img/air-max-pre-day.png"
 import ImgBotAirForce from "../../assets/img/air-force-1.png"
 import ImgBotAirForceLow from "../../assets/img/air-force-1-low.png"
 
+import { CartContext } from "@/context/cart"
+
 import { bots } from "./data/bots"
 
 type PropsTypes ={
-    id: Number,
+    id: number,
     title: string,
     description: string,
-    price: string,
+    price: number,
 }
 
 export default function ContentBot(){
 
-    const [active, setActive] = useState(0)
-    const [botSelected, setBotSelected] = useState<PropsTypes>()
+    const [active, setActive] = useState(0);
+    const [botSelected, setBotSelected] = useState<PropsTypes>();
+    const { cart, addProduct, handleCart, expandCart } = useContext(CartContext);
 
     useEffect(() => {
         setBotSelected(bots[active])
@@ -62,9 +65,13 @@ export default function ContentBot(){
                     <h1> {botSelected?.title} </h1>
                     <p> {botSelected?.description} </p>
                     <Buttons active={active}>
-                        <button>Buy</button>
+                        <button
+                            onClick={ () =>{ addProduct(botSelected?.id || 0) }}
+                        >
+                            Buy
+                        </button>
                         <button className="transparent"> 
-                            {botSelected?.price}
+                            U$ {botSelected?.price}
                         </button>
                     </Buttons>
                 </Content>

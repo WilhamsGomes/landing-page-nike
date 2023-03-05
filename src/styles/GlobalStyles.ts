@@ -38,7 +38,7 @@ export default createGlobalStyle`
 
     /* width */
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 5px;
     }
     /* Track */
     /* ::-webkit-scrollbar-track {
