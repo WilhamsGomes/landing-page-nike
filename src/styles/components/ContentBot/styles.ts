@@ -143,6 +143,7 @@ export const Buttons = styled.div<{ active: Number }>`
     display: flex;
     align-items: center;
     gap: 18px;
+    z-index: 9999;
 
     .transparent{
         background: transparent;
