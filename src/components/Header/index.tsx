@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { 
     Container,
     List,
@@ -18,7 +18,8 @@ import Cart from "../Cart";
 export default function Header() {
 
     const [active, setActive] = useState(0);
-    const { cart, addProduct, handleCart, expandCart } = useContext(CartContext);
+    const [quantityProducts, setQuantityProducts] = useState(0)
+    const { cart, addProduct, handleCart, expandCart, quantityProduct } = useContext(CartContext);
 
     return(
         <>
@@ -54,7 +55,7 @@ export default function Header() {
                 </Content>
                 <WrapperCart>
                     <QuantityItem>
-                        {cart?.length}
+                        {quantityProduct}
                     </QuantityItem>
                     <Cart2 size="24" title="Unlock account" 
                         onClick={ () =>{ (

@@ -10,8 +10,10 @@ type Product ={
 type CartProps = {
     cart: Product[] | undefined;
     addProduct: (productId: number) => void;
+    removeProduct: (productId: number) => void;
     expandCart: boolean;
     handleCart: (value: boolean) => void;
+    quantityProduct: number;
 }
 
 type Props = {
@@ -24,6 +26,7 @@ export const CartProvider = ({children} : Props) => {
  
     const [cart, setCart] = useState<Product[]>([]);
     const [expandCart, setExpandCart] = useState(false);
+    const [quantityProduct, setQuantityProduct] = useState(0)
 
     const handleCart = (value: boolean) =>{
         setExpandCart(value)
@@ -31,8 +34,6 @@ export const CartProvider = ({children} : Props) => {
 
     const addProduct = (productId: number) => {
 
-        //Fazer verificações antes de adicionar no carrinho
-        console.log(productId)
         const botAdd = bots.find((item) =>  item.id === productId)
 
         if(botAdd){
@@ -40,20 +41,13 @@ export const CartProvider = ({children} : Props) => {
             const verifyIfExists = cart.find((item) => item.productId === productId)
             
             if(verifyIfExists){
-                console.log("Produto já existe no carrinho")
-
-                // setCart(prevList => [
-                //     ...prevList,
-                //     {
-                //         productId: 1,
-                //         amount: 10,
-                //         quantity: 2,
-                //     },
-                // ])
+                let edit = cart.find((item) => item.productId == verifyIfExists.productId)
+                if(edit){
+                    edit.quantity = edit.quantity+1
+                    setQuantityProduct(quantityProduct + 1)
+                } 
 
             } else {
-                console.log("Produto não existe no carrinho")
-
                 setCart(prevList => [
                     ...prevList,
                     {
@@ -62,24 +56,33 @@ export const CartProvider = ({children} : Props) => {
                         quantity: 1
                     }
                 ])
-
+                setQuantityProduct(quantityProduct + 1)
             }
-
         }
 
     }
 
-    useEffect(() => {
-        console.log("useEffect", cart.length)
-    }, [cart])
+    const removeProduct = (productId: number) => {
+
+        let botRemove = cart.find((item) =>  item.productId === productId)
+        const findIndex = cart.findIndex((item) =>item.productId === productId)
+
+        if(botRemove && botRemove.quantity > 0){
+            botRemove.quantity = botRemove.quantity - 1
+            setQuantityProduct(quantityProduct - 1)
+        } 
+
+    }
 
     return(
         <CartContext.Provider
             value={{
                 cart,
                 addProduct,
+                removeProduct,
                 expandCart,
-                handleCart
+                handleCart,
+                quantityProduct
             }}
         >
             {children}
