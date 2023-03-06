@@ -49,7 +49,7 @@ export default function Cart(){
                                     <p>
                                     {searchBot(item.productId)}
                                     </p>
-                                    <h4>U$ {item.amount}</h4>
+                                    <h4>U$ {item.amount * item.quantity}</h4>
                                 </InfosBasic>
                                 <Actions>
                                     <span>{item.quantity}x</span>

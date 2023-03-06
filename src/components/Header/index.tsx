@@ -53,15 +53,15 @@ export default function Header() {
                         </Item>
                     </List>
                 </Content>
-                <WrapperCart>
+                <WrapperCart
+                    onClick={ () =>{ (
+                        handleCart(true)
+                    )}}
+                >
                     <QuantityItem>
                         {quantityProduct}
                     </QuantityItem>
-                    <Cart2 size="24" title="Unlock account" 
-                        onClick={ () =>{ (
-                            handleCart(true)
-                        )}}
-                    />
+                    <Cart2 size="24" title="Cart"/>
                 </WrapperCart>
             </Container>
             {expandCart && <Cart/>}

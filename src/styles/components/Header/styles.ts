@@ -58,13 +58,17 @@ export const Item = styled.li`
 `;
 
 export const WrapperCart = styled.div`
+    width: 48px;
     padding: 8px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 `;
 
 export const QuantityItem = styled.div`
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
