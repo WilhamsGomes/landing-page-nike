@@ -101,6 +101,10 @@ export const Content = styled.div<{ active: Number }>`
             font-size: 3rem;
         }
 
+        @media (max-width: 450px) {
+            max-height: 550px;
+        }
+
     }
 
     p{
@@ -155,10 +159,17 @@ export const Buttons = styled.div<{ active: Number }>`
         font-weight: bold;
         border: none;
         border-radius: 6px;
+
+        @media (max-width: 450px) {
+            width: 90px;
+        }
+
     }
 
     @media (${(props) => props.theme.breaks.lg}) {
         justify-content: center;
     }
+
+   
 
 `;

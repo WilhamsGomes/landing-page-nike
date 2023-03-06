@@ -19,6 +19,11 @@ export const Content = styled.div`
     align-items: center;
     gap: 80px;
     margin-top: 16px;
+
+    @media (max-width: 490px) {
+        gap: 50px;
+    }
+
 `;
 
 export const List = styled.ul`
@@ -31,6 +36,15 @@ export const List = styled.ul`
         border-bottom: 2px solid #000;
         font-weight: bold;
     }
+
+    @media (${(props) => props.theme.breaks.sm}) {
+        gap: 15px;
+    }
+
+    @media (max-width: 450px) {
+        display: none;
+    }
+
 `;
 
 export const Item = styled.li`

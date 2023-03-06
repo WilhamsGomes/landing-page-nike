@@ -7,7 +7,7 @@ export const Overflow = styled.div`
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
 `;
 
 export const Container = styled.div`
@@ -46,7 +46,7 @@ export const Content = styled.div`
     gap: 16px;
     margin-top: 48px;
     padding: 8px;
-`;
+`; 
 
 export const Item = styled.div`
     width: 100%;
